@@ -10,7 +10,7 @@ class VideoList extends React.Component{
         for (var i = 0; i < this.props.videoData.length; i++) {
             video = this.props.videoData[i];
             videos.push( <VideoListEntry
-                somefunction={this.props.somefunction}
+                modifyAppState={this.props.modifyAppState}
                 key={video.id.videoId}
                 title={video.snippet.title}
                 detail={video.snippet.description}

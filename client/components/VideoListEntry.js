@@ -13,7 +13,7 @@ class VideoListEntry extends React.Component{
         <div className="media-body">
           <div className="video-list-entry-title" 
             onClick={() => {
-              this.props.somefunction({
+              this.props.modifyAppState({
               activeVideo:{
                 title: this.props.title,
                 description: this.props.detail,
