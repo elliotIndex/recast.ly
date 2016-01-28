@@ -39,16 +39,20 @@ class App extends React.Component{
   }
 }
 
-window.makeStateObject = function(data) {
+window.makeStateObject = function(data, modifyActiveVideo = true) {
   var videoData = data.items;
   var firstVideo = videoData[0];
-  return {
-    activeVideo:{
+  var newState = {
+    videoList: videoData
+  };
+
+  if(modifyActiveVideo){
+    newState.activeVideo = {
       title: firstVideo.snippet.title,
       description: firstVideo.snippet.description,
       videoId: firstVideo.id.videoId
-    },
-    videoList: videoData
-  };
+    };
+  }
+  return newState;
 }
 ReactDOM.render(<App videoData={window.exampleVideoData}/>, document.getElementById("app"));

@@ -4,7 +4,7 @@ class Search extends React.Component{
     this.throttledSearch = _.throttle(()=> {
             window.searchYouTube(
               $('.form-control').val(),   
-              (data) => this.props.modifyAppState(window.makeStateObject(data))
+              (data) => this.props.modifyAppState(window.makeStateObject(data, false))
             );
           }, 1500);
   }
@@ -14,12 +14,6 @@ class Search extends React.Component{
       <div className="search-bar form-inline">
         <input className="form-control" type="text" 
           onKeyUp={ this.throttledSearch }
-            // ()=> {
-            // window.searchYouTube(
-            //   $('.form-control').val(),   
-            //   (data) => this.props.modifyAppState(window.makeStateObject(data))
-            // );
-          // }}
         />
         <button className="btn hidden-sm-down">
           <span className="glyphicon glyphicon-search"></span>
