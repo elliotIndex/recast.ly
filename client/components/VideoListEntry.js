@@ -18,8 +18,7 @@ class VideoListEntry extends React.Component{
                 title: this.props.title,
                 description: this.props.detail,
                 videoId: this.props.videoId
-              },
-              videoList: window.exampleVideoData
+              }
             })
           }}>{this.props.title}</div>
           <div className="video-list-entry-detail">{this.props.detail}</div>
