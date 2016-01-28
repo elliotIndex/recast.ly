@@ -34,7 +34,7 @@ class App extends React.Component{
             videoId={this.state.activeVideo.videoId} />
         </div>
         <div className="col-md-5">
-          <VideoList modifyAppState={this.setState.bind(this)} videoData={window.exampleVideoData} />
+          <VideoList modifyAppState={this.setState.bind(this)} videoData={this.state.videoList} />
         </div>
       </div>
     )
