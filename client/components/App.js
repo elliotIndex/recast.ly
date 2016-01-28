@@ -20,13 +20,12 @@ class App extends React.Component{
         <Nav />
         <div className="col-md-7">
           <VideoPlayer 
-            somefunction={this.setState.bind(this)}
             title={this.state.activeVideo.title}
             description={this.state.activeVideo.description} 
             videoId={this.state.activeVideo.videoId} />
         </div>
         <div className="col-md-5">
-          <VideoList onclick="something with a this binding" videoData={window.exampleVideoData} />
+          <VideoList somefunction={this.setState.bind(this)} videoData={window.exampleVideoData} />
         </div>
       </div>
     )

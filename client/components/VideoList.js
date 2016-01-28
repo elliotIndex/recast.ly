@@ -6,15 +6,17 @@ class VideoList extends React.Component{
 
     render() {
         var videos = [];
-        var snippet;
+        var video;
         for (var i = 0; i < this.props.videoData.length; i++) {
-            snippet = this.props.videoData[i].snippet;
+            video = this.props.videoData[i];
             videos.push( <VideoListEntry
-                            somefunction={this.props.somefunction};
-                            key={this.props.videoData[i].id.videoId}
-                            title={snippet.title}
-                            detail={snippet.description}
-                            src={snippet.thumbnails.default.url} />);
+                somefunction={this.props.somefunction}
+                key={video.id.videoId}
+                title={video.snippet.title}
+                detail={video.snippet.description}
+                src={video.snippet.thumbnails.default.url} 
+                videoId={video.id.videoId}
+            />);
         }
         return (
           <div className="video-list media">{videos}</div>
