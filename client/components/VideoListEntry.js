@@ -13,15 +13,22 @@ class VideoListEntry extends React.Component{
         <div className="media-body">
           <div className="video-list-entry-title" 
             onClick={() => {
-              this.props.modifyAppState({
-              activeVideo:{
-                title: this.props.title,
-                description: this.props.detail,
-                videoId: this.props.videoId
-              }
-            })
+              window.searchYouTube(
+                '',   
+                (data) => this.props.modifyAppState(window.makeStateObject(data)),
+                this.props.videoId
+              );
+            // this.props.modifyAppState(
+            //   {
+            //   activeVideo:{
+            //     title: this.props.title,
+            //     description: this.props.detail,
+            //     videoId: this.props.videoId
+            //   }
+            // }
+            // )
           }}>{this.props.title}</div>
-          <div className="video-list-entry-detail">{this.props.detail}</div>
+          <div className="video-list-entry-detail">{this.props.detail.slice(0, 140) + '...'}</div>
         </div>
       </div>
     )

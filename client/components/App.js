@@ -15,10 +15,8 @@ class App extends React.Component{
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
     var self = this;
-    window.searchYouTube('watch me whip', (data)=>{
-      console.log('into the search');
+    window.searchYouTube('how to do taxes', (data)=>{
       self.setState(window.makeStateObject(data),console.log('setStateCallback'));
     });
   }
@@ -42,7 +40,6 @@ class App extends React.Component{
 }
 
 window.makeStateObject = function(data) {
-  //turn data into updated state object
   var videoData = data.items;
   var firstVideo = videoData[0];
   return {
