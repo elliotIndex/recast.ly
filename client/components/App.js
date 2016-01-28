@@ -13,18 +13,20 @@ class App extends React.Component{
     };
   }
 
+
   render(){
     return ( 
       <div>
         <Nav />
         <div className="col-md-7">
           <VideoPlayer 
+            somefunction={this.setState.bind(this)}
             title={this.state.activeVideo.title}
             description={this.state.activeVideo.description} 
             videoId={this.state.activeVideo.videoId} />
         </div>
         <div className="col-md-5">
-          <VideoList videoData={window.exampleVideoData} />
+          <VideoList onclick="something with a this binding" videoData={window.exampleVideoData} />
         </div>
       </div>
     )

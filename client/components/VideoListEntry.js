@@ -11,7 +11,17 @@ class VideoListEntry extends React.Component{
           <img className="media-object" src={this.props.src} alt="" />
         </div>
         <div className="media-body">
-          <div className="video-list-entry-title">{this.props.title}</div>
+          <div className="video-list-entry-title" 
+            onClick=() => {
+              this.props.somefunction({
+              activeVideo:{
+                title: this.props.title,
+                description: this.props.detail,
+                videoId: this.props.src
+              },
+              videoList: window.exampleVideoData
+            })
+          }>{this.props.title}</div>
           <div className="video-list-entry-detail">{this.props.detail}</div>
         </div>
       </div>
