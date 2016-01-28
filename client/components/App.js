@@ -19,7 +19,7 @@ class App extends React.Component{
     var self = this;
     window.searchYouTube('watch me whip', (data)=>{
       console.log('into the search');
-      self.setState(window.makeStateObject(data));
+      self.setState(window.makeStateObject(data),console.log('setStateCallback'));
     });
   }
 
@@ -43,9 +43,9 @@ class App extends React.Component{
 
 window.makeStateObject = function(data) {
   //turn data into updated state object
-  var videoData = data.results;
+  var videoData = data.items;
   var firstVideo = videoData[0];
-  return{
+  return {
     activeVideo:{
       title: firstVideo.snippet.title,
       description: firstVideo.snippet.description,
