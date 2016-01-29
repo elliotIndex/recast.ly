@@ -16,7 +16,7 @@ class App extends React.Component{
 
   componentWillMount() {
     var self = this;
-    window.searchYouTube('how to do taxes', (data)=>{
+    window.searchYouTube('rain sounds', (data)=>{
       self.setState(window.makeStateObject(data),console.log('setStateCallback'));
     });
   }
@@ -25,13 +25,19 @@ class App extends React.Component{
     return ( 
       <div>
         <Nav modifyAppState={this.setState.bind(this)} />
-        <div className="col-md-7">
+        <div className="col-md-8">
           <VideoPlayer 
             title={this.state.activeVideo.title}
             description={this.state.activeVideo.description} 
-            videoId={this.state.activeVideo.videoId} />
+            videoId={this.state.activeVideo.videoId} 
+          />
+          <VideoDetails
+            title={this.state.activeVideo.title}
+            description={this.state.activeVideo.description} 
+            videoId={this.state.activeVideo.videoId}
+          />
         </div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <VideoList modifyAppState={this.setState.bind(this)} videoData={this.state.videoList} />
         </div>
       </div>
