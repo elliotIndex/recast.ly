@@ -3,15 +3,15 @@ class VideoDetails extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    console.log('mounting the component');
-    window.searchYouTube(
-      '',   
-      (data) => this.props.modifyAppState(window.addDetailsToState(data)),
-      this.props.videoId,
-      'statistics'
-    );
-  };
+  // componentDidMount() {
+  //   console.log(this.props.videoId);
+  //   window.searchYouTube(
+  //     '',   
+  //     (data) => this.props.modifyAppState(window.addDetailsToState(data)),
+  //     this.props.videoId,
+  //     'statistics'
+  //   );
+  // };
   
 
   render(){

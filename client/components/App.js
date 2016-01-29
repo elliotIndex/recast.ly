@@ -20,12 +20,20 @@ class App extends React.Component{
     };
   }
 
-  componentWillMount() {
+
+  componentDidMount() {
     var self = this;
-    window.searchYouTube('rain sounds', (data)=>{
+    window.searchYouTube('DJ Khaled All I do is win', (data)=>{
       self.setState(window.makeStateObject(data));
+      window.searchYouTube(
+        '',   
+        (data) => self.setState(window.addDetailsToState(data)),
+        data.items[0].id.videoId,
+        'statistics'
+      );
     });
   }
+
 
   render(){
     return ( 
@@ -57,21 +65,27 @@ window.makeStateObject = function(data, modifyActiveVideo = true) {
   var videoData = data.items;
   var firstVideo = videoData[0];
   var newState = {
-    videoList: videoData
+    videoList: videoData,
+    statistics: {
+      viewCount: "5",
+      likeCount: "6",
+      dislikeCount: "7",
+      favoriteCount: "8"
+    }
   };
 
   if(modifyActiveVideo){
     newState.activeVideo = {
       title: firstVideo.snippet.title,
       description: firstVideo.snippet.description,
-      videoId: firstVideo.id.videoId
+      videoId: firstVideo.id.videoId,
     };
   }
   return newState;
 };
 
 window.addDetailsToState = function(data) {
-  console.log("adding Details");
+  console.log(data);
   return {statistics: data.items[0].statistics};
 };
 

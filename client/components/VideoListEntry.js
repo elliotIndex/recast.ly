@@ -15,9 +15,11 @@ class VideoListEntry extends React.Component{
             onClick={() => {
               window.searchYouTube(
                 '',   
-                (data) => this.props.modifyAppState(window.makeStateObject(data)),
-                this.props.videoId
-              );
+                (data) => {
+                  this.props.modifyAppState(window.makeStateObject(data))
+                }, 
+                this.props.videoId);
+
           }}>{this.props.title}</div>
           <div className="video-list-entry-detail">{this.props.detail.slice(0, 140) + '...'}</div>
         </div>
